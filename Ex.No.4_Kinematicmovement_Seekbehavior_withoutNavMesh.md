@@ -25,70 +25,42 @@ To write a program to simulate the process of seek and Flee behavior in Unity wi
     
 ### Program:
 ```
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class seekScript : MonoBehaviour
+public class SeekBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Transform target;  // The object to seek
-    public float speed = 5f;  // Movement speed
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform target;
+    public Transform f;
+    public Transform s;
+    private float speed = 0.2f;
+
     void Start()
     {
-        
+        print("Welcome");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null) return;  // Exit if no target is assigned
-
-        // Calculate the desired direction
-        Vector3 direction = (target.position - transform.position).normalized;
-
-        // Move the object towards the target
-        transform.position += direction * speed * Time.deltaTime;
+        // seek script
+        Vector3 dir = (target.position - s.position).normalized;
+        s.position += dir * speed;
+        //flee script
+        Vector3 dir1 = (f.position - target.position).normalized;
+        f.position += dir1 * speed;
     }
 }
+
 ```
-```
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class fleeScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-    public Transform target;  // The object to seek
-    public float speed = 5f;  // Movement speed
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (target == null) return;  // Exit if no target is assigned
-
-        // Calculate the desired direction
-        Vector3 direction = (transform.position-target.position).normalized;
-
-        // Move the object towards the target
-        transform.position += direction * speed * Time.deltaTime;
-    }
-}
-```
 ### Output:
+<img width="1917" height="1023" alt="Screenshot 2026-07-26 194124" src="https://github.com/user-attachments/assets/22c485ea-e086-4bc9-ae12-ae81bf1889a5" />
 
-
-
-
-
-
-
-
+<img width="1917" height="1020" alt="Screenshot 2026-07-26 194502" src="https://github.com/user-attachments/assets/80d5924c-ecef-4e20-8f2e-001e74f6db70" />
 
 ### Result:
 Thus the simple seek behavior was implemented successfully.
