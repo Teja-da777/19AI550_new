@@ -141,7 +141,7 @@ Check the following
 
 
 ### Output:
-
+<img width="1915" height="952" alt="Screenshot 2026-08-07 093828" src="https://github.com/user-attachments/assets/42302f94-8c24-4f4f-8312-bbad3d78ab07" />
 
 ### Result:
 Thus the pathfinding algorithm was sucessfully implemented.
